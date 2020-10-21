@@ -38,3 +38,9 @@ body {
 .profile-image {
   border: 2px solid  rgb(245, 98, 0);
 }
+
+.notLogged {
+  text-align: center;
+  width: 80%;
+  margin: 50px auto ;
+}

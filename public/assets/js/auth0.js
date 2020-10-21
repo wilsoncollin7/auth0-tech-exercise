@@ -22,10 +22,9 @@ const updateUI = async () => {
   const isAuthenticated = await auth0.isAuthenticated();
 
   if (isAuthenticated) {
-    document.getElementById("gated-content-1").classList.remove("hidden");
+    document.getElementById("gated-content-1").classList.add("hidden");
     document.getElementById("gated-content-2").classList.remove("hidden");
 
-    document.getElementById("btn-logout").classList.remove("hidden");
     document.getElementById("btn-login").classList.add("hidden");
 
     const user = await auth0.getUser();
@@ -37,9 +36,8 @@ const updateUI = async () => {
     eachElement(".auth-visible", (e) => e.classList.remove("hidden"));
 
   } else {
-    document.getElementById("gated-content-1").classList.add("hidden");
+    document.getElementById("gated-content-1").classList.remove("hidden");
     document.getElementById("gated-content-2").classList.add("hidden");
-    document.getElementById("btn-logout").classList.add("hidden");
     document.getElementById("btn-login").classList.remove("hidden");
   }
 };

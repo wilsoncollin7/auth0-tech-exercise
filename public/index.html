@@ -14,7 +14,6 @@
       <span class="navbar-brand mb-0 h1"><a id="brand">Auth0</a>Rule Viewer</span>
       <form class="form-inline">
         <button id="btn-login" class="btn btn-light ui primary button" onclick="login()">Login</button>
-        <button id="btn-logout" class="hidden btn btn-light ui primary button" onclick="logout()">Logout</button>
         <div class="nav-item dropdown auth-visible hidden">
           <a
             class="nav-link dropdown-toggle"
@@ -50,8 +49,23 @@
      
     </nav>
 
-    <div class="hidden" id="gated-content-1">LOGED IN</div>
-    <div class="hidden" id="gated-content-2">LOGED IN</div>
+    <div id="gated-content-1">
+      <div class="jumbotron notLogged">
+        <h1 class="notLoggedHeader">Welcome! Login to continue</h1>
+      </div>
+    </div>
+    <div class="hidden" id="gated-content-2">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-2">
+            yeet
+          </div>
+          <div class="col-lg-10">
+            yeet
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
