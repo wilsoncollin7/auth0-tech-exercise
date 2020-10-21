@@ -32,7 +32,7 @@ body {
 
 .navbar {
   height: 80px;
-  box-shadow: 0 1px 20px rgba(0,0,0,.2);
+  border-bottom: 1px solid rgb(184, 184, 184,0.4);
 }
 
 .profile-image {
@@ -43,4 +43,19 @@ body {
   text-align: center;
   width: 80%;
   margin: 50px auto ;
+}
+
+.menu {
+  width: 200px;
+  height: 100vh;
+  background-color: rgb(252, 252, 252);
+  border-right: 1px solid rgb(184, 184, 184,0.4);
+  padding-top: 30px;
+}
+.menu-button {
+  width: 100%;
+}
+
+.main {
+  height: 100vh;
 }
