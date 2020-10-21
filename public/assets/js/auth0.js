@@ -42,6 +42,30 @@ const updateUI = async () => {
   }
 };
 
+const callApi = async () => {
+  try {
+    const token = await auth0.getTokenSilently();
+
+    const response = await fetch("/api/external", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    const responseData = await response.json();
+    console.log(responseData)
+    // const responseElement = document.getElementById("api-call-result");
+
+    // responseElement.innerText = JSON.stringify(responseData, {}, 2);
+
+    // document.querySelectorAll("pre code").forEach(hljs.highlightBlock);
+
+    // eachElement(".result-block", (c) => c.classList.add("show"));
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 window.onload = async () => {
   await configureClient();
   updateUI();
@@ -53,6 +77,7 @@ window.onload = async () => {
     // Use replaceState to redirect the user away and remove the querystring parameters
     window.history.replaceState({}, document.title, "/");
   }
+  callApi();
 };
 
 const login = async () => {
