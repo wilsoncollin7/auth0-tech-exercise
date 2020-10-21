@@ -10,19 +10,22 @@
   </head>
 
   <body>
-    <section class="container">
-      <div class="main">
-        <div class="login">
-          <h1>Welcome</h1>
-          <button type="button" class="btn btn-primary" id="login">Login</button>
-        </div>
-        <div class="dashboard">
-          <h1>Auth0 Rule Viewer</h1>
-          <button type="button" class="btn btn-primary" id="viewRules">View Rules</button>
-          <div class="rules"></div>
-          <button type="button" class="btn btn-primary" id="logout">Logout</button>
-        </div>
-      </div>
-    </section>
+    <nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1"><a id="brand">Auth0</a>Rule Viewer</span>
+      <form class="form-inline">
+        <button id="btn-login" class="btn btn-light ui primary button" onclick="login()">Login</button>
+        <button id="btn-logout" class="hidden btn btn-light ui primary button" onclick="logout()">Logout</button>
+        <!-- <div id="avatar-img-div" class=""> -->
+          <img id="avatar-img" class="hidden ui avatar image shadow" src="">
+        <!-- </div> -->
+      </form>
+      
+    </nav>
+
+    <div class="hidden" id="gated-content-1">LOGED IN</div>
+    <div class="hidden" id="gated-content-2">LOGED IN</div>
+
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
+    <script src="./assets/js/auth0.js"></script>
   </body>
 </html>
