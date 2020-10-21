@@ -10,6 +10,19 @@ label {
 body {
   background: #ffffff;
 }
+.dropdown-menu {
+  padding: 10px;
+}
+.dropdown-toggle {
+  color: rgb(245, 98, 0);
+}
+.dropdown-toggle:hover {
+  color: black;
+}
+.dropdown-item, .dropdown-header {
+  float: left;
+  padding: 5px;
+}
 
 #brand {
   font-size: 30px;
@@ -18,13 +31,10 @@ body {
 }
 
 .navbar {
-  height: 70px;
+  height: 80px;
   box-shadow: 0 1px 20px rgba(0,0,0,.2);
 }
 
-#avatar-img {
-  width: 50px;
-  float: right;
-  border-radius: 50px;
+.profile-image {
   border: 2px solid  rgb(245, 98, 0);
 }

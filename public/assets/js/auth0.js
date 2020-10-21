@@ -9,6 +9,13 @@ const configureClient = async () => {
     domain: config.domain,
     client_id: config.clientId,
   });
+  
+};
+
+const eachElement = (selector, fn) => {
+  for (let e of document.querySelectorAll(selector)) {
+    fn(e);
+  }
 };
 
 const updateUI = async () => {
@@ -21,11 +28,13 @@ const updateUI = async () => {
     document.getElementById("btn-logout").classList.remove("hidden");
     document.getElementById("btn-login").classList.add("hidden");
 
-    const claims = await auth0.getIdTokenClaims()
-    const pictureUrl = claims.picture
+    const user = await auth0.getUser();
     
-    document.getElementById("avatar-img").src = pictureUrl || 'https://icon-library.net/images/icon-of-music/icon-of-music-8.jpg';
-    document.getElementById("avatar-img").classList.remove("hidden")
+    eachElement(".profile-image", (e) => (e.src = user.picture));
+    eachElement(".user-name", (e) => (e.innerText = user.name));
+    eachElement(".user-email", (e) => (e.innerText = user.email));
+    eachElement(".auth-invisible", (e) => e.classList.add("hidden"));
+    eachElement(".auth-visible", (e) => e.classList.remove("hidden"));
 
   } else {
     document.getElementById("gated-content-1").classList.add("hidden");

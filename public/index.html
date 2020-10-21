@@ -15,16 +15,46 @@
       <form class="form-inline">
         <button id="btn-login" class="btn btn-light ui primary button" onclick="login()">Login</button>
         <button id="btn-logout" class="hidden btn btn-light ui primary button" onclick="logout()">Logout</button>
-        <!-- <div id="avatar-img-div" class=""> -->
-          <img id="avatar-img" class="hidden ui avatar image shadow" src="">
-        <!-- </div> -->
+        <div class="nav-item dropdown auth-visible hidden">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="profileDropDown"
+            data-toggle="dropdown"
+          >
+            <img
+              alt="Profile picture"
+              class="nav-user-profile profile-image rounded-circle"
+              width="50"
+            />
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header nav-user-name user-name"></div>
+            <a
+              href="/profile"
+              class="dropdown-item dropdown-profile route-link"
+            >
+              <i class="fas fa-user mr-3"></i> Profile
+            </a>
+            <a
+              href="#"
+              class="dropdown-item"
+              id="qsLogoutBtn"
+              onclick="logout()"
+            >
+              <i class="fas fa-power-off mr-3"></i> Log out
+            </a>
+          </div>
+        </div>
       </form>
-      
+     
     </nav>
 
     <div class="hidden" id="gated-content-1">LOGED IN</div>
     <div class="hidden" id="gated-content-2">LOGED IN</div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
     <script src="./assets/js/auth0.js"></script>
   </body>
