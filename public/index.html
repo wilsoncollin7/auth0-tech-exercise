@@ -11,11 +11,18 @@
 
   <body>
     <section class="container">
-      <div class="header">
-        <h1>Auth0 Rule Viewer</h1>
-        <button type="button" class="btn btn-primary">View Rules</button>
+      <div class="main">
+        <div class="login">
+          <h1>Welcome</h1>
+          <button type="button" class="btn btn-primary" id="login">Login</button>
+        </div>
+        <div class="dashboard">
+          <h1>Auth0 Rule Viewer</h1>
+          <button type="button" class="btn btn-primary" id="viewRules">View Rules</button>
+          <div class="rules"></div>
+          <button type="button" class="btn btn-primary" id="logout">Logout</button>
+        </div>
       </div>
-      <div class="main"></div>
     </section>
   </body>
 </html>
