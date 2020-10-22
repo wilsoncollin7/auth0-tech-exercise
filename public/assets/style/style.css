@@ -6,6 +6,9 @@ label {
   margin-bottom: 10px;
   display: block;
 }
+ul {
+  list-style: none;
+}
 
 body {
   background: #ffffff;
