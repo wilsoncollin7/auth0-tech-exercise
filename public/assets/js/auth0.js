@@ -4,10 +4,11 @@ const fetchAuthConfig = () => fetch("/auth_config.json");
 const configureClient = async () => {
   const response = await fetchAuthConfig();
   const config = await response.json();
-
+  
   auth0 = await createAuth0Client({
     domain: config.domain,
     client_id: config.clientId,
+    audience: config.audience
   });
   
 };
@@ -43,27 +44,18 @@ const updateUI = async () => {
 };
 
 const callApi = async () => {
-  try {
-    const token = await auth0.getTokenSilently();
+  
+  const token = await auth0.getTokenSilently();
 
-    const response = await fetch("/api/external", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
+  const response = await fetch("/api/external", {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
 
-    const responseData = await response.json();
-    console.log(responseData)
-    // const responseElement = document.getElementById("api-call-result");
+  const responseData = await response.json();
 
-    // responseElement.innerText = JSON.stringify(responseData, {}, 2);
-
-    // document.querySelectorAll("pre code").forEach(hljs.highlightBlock);
-
-    // eachElement(".result-block", (c) => c.classList.add("show"));
-  } catch (e) {
-    console.error(e);
-  }
+  console.log(responseData)  
 };
 
 window.onload = async () => {
