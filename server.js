@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
+const axios = require("axios").default;
+
 const authConfig = require("./public/auth_config.json");
 
 const app = express();
@@ -13,31 +13,20 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
-  }),
+const options = {
+  method: 'GET',
+  url: 'https://dev-dq7p2jjf.us.auth0.com/api/v2/rules',
+  headers: {authorization: `Bearer ${authConfig.token}`}
+};
 
-  audience: authConfig.audience,
-  issuer: `https://${authConfig.domain}/`,
-  algorithms: ["RS256"]
-});
-
-app.get("/api/external", checkJwt, (req, res) => {
-  res.send({
-    msg: "Your access token was successfully validated!"
-  });
-});
-
-app.get("/auth_config.json", (req, res) => {
-  res.sendFile(join(__dirname, "auth_config.json"));
+axios.request(options).then(function (response) {
+  console.log(response.data);
+}).catch(function (error) {
+  console.error(error);
 });
 
 // app.use(require("./routes/apiRoutes"));
-// app.use(require("./routes/htmlRoutes"));
+app.use(require("./routes/htmlRoutes"));
 
 app.listen(PORT, function() {
   console.log(`Now listening on port: ${PORT}`);

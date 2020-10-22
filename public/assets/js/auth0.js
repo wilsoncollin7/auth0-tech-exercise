@@ -43,21 +43,6 @@ const updateUI = async () => {
   }
 };
 
-const callApi = async () => {
-  
-  const token = await auth0.getTokenSilently();
-
-  const response = await fetch("/api/external", {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-
-  const responseData = await response.json();
-
-  console.log(responseData)  
-};
-
 window.onload = async () => {
   await configureClient();
   updateUI();
@@ -69,7 +54,6 @@ window.onload = async () => {
     // Use replaceState to redirect the user away and remove the querystring parameters
     window.history.replaceState({}, document.title, "/");
   }
-  callApi();
 };
 
 const login = async () => {
