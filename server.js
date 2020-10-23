@@ -47,6 +47,24 @@ app.get("/api/v2/users", (req, res) => {
   });
 });
 
+app.get("/api/v2/clients", (req, res) => {
+  axios.request({
+    method: 'GET',
+    url: 'https://dev-dq7p2jjf.us.auth0.com/api/v2/clients',
+    headers: {authorization: `Bearer ${authConfig.token}`}
+  }).then(function (response) {
+    const clients = [];
+    let nameID = {};
+    for (let i = 1; i < response.data.length; i++) {
+      nameID = (response.data[i].name + " - " + response.data[i].client_id)
+      clients.push(nameID);
+    }
+    res.send(clients)
+  }).catch(function (error) {
+    console.error(error);
+  });
+});
+
 app.use(require("./routes/htmlRoutes"));
 
 app.listen(PORT, function() {
