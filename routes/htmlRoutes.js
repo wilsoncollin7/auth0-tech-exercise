@@ -1,3 +1,6 @@
+//-------------------------------------------------
+// basic html route, made file for future expansion
+//-------------------------------------------------
 const express = require("express");
 const app = express();
 const path = require("path");

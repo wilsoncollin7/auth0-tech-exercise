@@ -1,7 +1,9 @@
+/* ---------------------------- */
+/* page css basic styling */
+/* ---------------------------- */
 .hidden {
   display: none;
 }
-
 label {
   margin-bottom: 10px;
   display: block;
@@ -9,7 +11,6 @@ label {
 ul {
   list-style: none;
 }
-
 body {
   background: #ffffff;
 }
@@ -26,28 +27,23 @@ body {
   float: left;
   padding: 5px;
 }
-
 #brand {
   font-size: 30px;
   color: rgb(245, 98, 0);
   margin-right: 10px;
 }
-
 .navbar {
   height: 80px;
   border-bottom: 1px solid rgb(184, 184, 184,0.4);
 }
-
 .profile-image {
   border: 2px solid  rgb(245, 98, 0);
 }
-
 .notLogged {
   text-align: center;
   width: 80%;
   margin: 50px auto ;
 }
-
 .menu {
   width: 200px;
   height: 100vh;
@@ -63,13 +59,11 @@ body {
   border: transparent;
   border-radius: 0;
 }
-
 .main {
   height: 100vh;
   padding-top: 30px;
   text-align: center;
 }
-
 .card-body {
   padding-right: 5%;
 }

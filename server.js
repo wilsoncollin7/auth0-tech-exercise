@@ -13,6 +13,8 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// gets all of the rules in the API
 app.get("/api/v2/rule", (req, res) => {
   axios.request({
     method: 'GET',
@@ -28,7 +30,7 @@ app.get("/api/v2/rule", (req, res) => {
     console.error(error);
   });
 });
-
+// gets all of the users in the API
 app.get("/api/v2/users", (req, res) => {
   axios.request({
     method: 'GET',
@@ -46,7 +48,7 @@ app.get("/api/v2/users", (req, res) => {
     console.error(error);
   });
 });
-
+// gets all of the clients in the API
 app.get("/api/v2/clients", (req, res) => {
   axios.request({
     method: 'GET',
@@ -65,6 +67,7 @@ app.get("/api/v2/clients", (req, res) => {
   });
 });
 
+// html route to start homepage
 app.use(require("./routes/htmlRoutes"));
 
 app.listen(PORT, function() {
