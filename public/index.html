@@ -29,12 +29,6 @@
           </a>
           <div class="dropdown-menu">
             <div class="dropdown-header nav-user-name user-name"></div>
-            <!-- <a
-              href="/profile"
-              class="dropdown-item dropdown-profile route-link"
-            >
-              <i class="fas fa-user mr-3"></i> Profile
-            </a> -->
             <a
               href="#"
               class="dropdown-item"
@@ -52,6 +46,10 @@
     <div id="gated-content-1">
       <div class="jumbotron notLogged">
         <h1 class="notLoggedHeader">Welcome! Login to continue</h1>
+      </div>
+      <div class="jumbotron notWhitelist hidden">
+        <h1 class="notLoggedHeader">You do not have permission to use site</h1>
+        <button id="btn-logout" class="btn btn-light ui primary button" onclick="logout()">try again</button>
       </div>
     </div>
     <div class="hidden" id="gated-content-2">
@@ -76,14 +74,7 @@
                 </div>
                 <div class="card users hidden">
                   <div class="card-body">
-                    <ul>
-                      <li>user 1</li>
-                      <li>user 1</li>
-                      <li>user 1</li>
-                      <li>user 1</li>
-                      <li>user 1</li>
-                      <li>user 1</li>
-                      <li>user 1</li>
+                    <ul class="usersList">
                     </ul>
                   </div>
                 </div>

@@ -27,7 +27,25 @@ app.get("/api/v2/rule", (req, res) => {
   }).catch(function (error) {
     console.error(error);
   });
-})
+});
+
+app.get("/api/v2/users", (req, res) => {
+  axios.request({
+    method: 'GET',
+    url: 'https://dev-dq7p2jjf.us.auth0.com/api/v2/users',
+    headers: {authorization: `Bearer ${authConfig.token}`}
+  }).then(function (response) {
+    const users = [];
+    let nameEmail = {};
+    for (let i = 0; i < response.data.length; i++) {
+      nameEmail = (response.data[i].name + " - " + response.data[i].email)
+      users.push(nameEmail);
+    }
+    res.send(users)
+  }).catch(function (error) {
+    console.error(error);
+  });
+});
 
 app.use(require("./routes/htmlRoutes"));
 

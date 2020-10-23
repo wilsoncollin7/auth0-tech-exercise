@@ -1,6 +1,8 @@
 let auth0 = null;
 const fetchAuthConfig = () => fetch("/auth_config.json");
 
+let isOnWhitelist = false;
+
 const configureClient = async () => {
   const response = await fetchAuthConfig();
   const config = await response.json();
@@ -10,7 +12,6 @@ const configureClient = async () => {
     client_id: config.clientId,
     audience: config.audience
   });
-  
 };
 
 const eachElement = (selector, fn) => {
@@ -21,25 +22,34 @@ const eachElement = (selector, fn) => {
 
 const updateUI = async () => {
   const isAuthenticated = await auth0.isAuthenticated();
+  const user = await auth0.getUser();
+  const response = await fetchAuthConfig();
+  const config = await response.json();
 
-  if (isAuthenticated) {
-    document.getElementById("gated-content-1").classList.add("hidden");
-    document.getElementById("gated-content-2").classList.remove("hidden");
+  if (config.whitelist.includes(user.email)) {
+    isOnWhitelist = true;
+  } else {
+    $(".notLogged").addClass("hidden");
+    $(".notWhitelist").removeClass("hidden");
+    return;
+  }
 
-    document.getElementById("btn-login").classList.add("hidden");
+  if (isAuthenticated && isOnWhitelist) {
+    $("#gated-content-1").addClass("hidden");
+    $("#gated-content-2").removeClass("hidden");
 
-    const user = await auth0.getUser();
+    $("#btn-login").addClass("hidden");
     
     eachElement(".profile-image", (e) => (e.src = user.picture));
     eachElement(".user-name", (e) => (e.innerText = user.name));
     eachElement(".user-email", (e) => (e.innerText = user.email));
-    eachElement(".auth-invisible", (e) => e.classList.add("hidden"));
+    eachElement(".auth-invisible", (e) => e.addClass("hidden"));
     eachElement(".auth-visible", (e) => e.classList.remove("hidden"));
 
   } else {
-    document.getElementById("gated-content-1").classList.remove("hidden");
-    document.getElementById("gated-content-2").classList.add("hidden");
-    document.getElementById("btn-login").classList.remove("hidden");
+    $("#gated-content-1").removeClass("hidden");
+    $("#gated-content-2").addClass("hidden");
+    $("#btn-login").removeClass("hidden");
   }
 };
 
