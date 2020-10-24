@@ -55,7 +55,7 @@ $("#clients").on("click", function() {
   // get request to the server, then displays the items in the array
   $.get("/api/v2/clients", function(data) {
     for (let i = 0; i < data.length; i++) {
-      let li = $("<li>").addClass("list-group-item");
+      let li = $("<button>").addClass("btn btn-light menu-button");
       li.text(data[i]);
       clientsList.append(li);
     }
