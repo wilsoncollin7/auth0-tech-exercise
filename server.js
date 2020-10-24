@@ -22,10 +22,16 @@ app.get("/api/v2/rule", (req, res) => {
     headers: {authorization: `Bearer ${authConfig.token}`}
   }).then(function (response) {
     const rules = [];
+    let rulesScripts = {};
     for (let i = 0; i < response.data.length; i++) {
-      rules.push(response.data[i].name);
+      rulesScripts = {
+        name: response.data[i].name,
+        script: response.data[i].script
+      }
+      rules.push(rulesScripts);
     }
-    res.send(rules)
+    console.log(rules);
+    res.send(rules);
   }).catch(function (error) {
     console.error(error);
   });
@@ -56,10 +62,10 @@ app.get("/api/v2/clients", (req, res) => {
     headers: {authorization: `Bearer ${authConfig.token}`}
   }).then(function (response) {
     const clients = [];
-    let nameID = {};
+    let name = {};
     for (let i = 1; i < response.data.length; i++) {
-      nameID = (response.data[i].name + " - " + response.data[i].client_id)
-      clients.push(nameID);
+      name = (response.data[i].name)
+      clients.push(name);
     }
     res.send(clients)
   }).catch(function (error) {

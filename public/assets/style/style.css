@@ -59,6 +59,13 @@ body {
   border: transparent;
   border-radius: 0;
 }
+.client-button {
+  width: 100%;
+  /* text-align: left; */
+  background-color: transparent;
+  border: transparent;
+  border-radius: 0;
+}
 .main {
   height: 100vh;
   padding-top: 30px;

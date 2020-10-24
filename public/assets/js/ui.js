@@ -16,7 +16,7 @@ $("#rules").on("click", function() {
   $.get("/api/v2/rule", function(data) {
     for (let i = 0; i < data.length; i++) {
       let li = $("<li>").addClass("list-group-item");
-      li.text(data[i]);
+      li.text(data[i].name);
       ruleList.append(li);
     }
   })
@@ -55,9 +55,13 @@ $("#clients").on("click", function() {
   // get request to the server, then displays the items in the array
   $.get("/api/v2/clients", function(data) {
     for (let i = 0; i < data.length; i++) {
-      let li = $("<button>").addClass("btn btn-light menu-button");
+      let li = $("<button>").addClass("btn btn-light client-button");
       li.text(data[i]);
       clientsList.append(li);
     }
   })
+});
+// ---client main buttons---
+$(".client-button").on("click", function() {
+  const clientRuleList = $(".clientRuleList");
 });
