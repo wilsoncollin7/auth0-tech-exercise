@@ -72,9 +72,6 @@ app.get("/api/v2/clients", (req, res) => {
   });
 });
 
-// html route to start homepage
-app.use(require("./routes/htmlRoutes"));
-
 app.listen(PORT, function() {
   console.log(`Now listening on port: ${PORT}`);
 });

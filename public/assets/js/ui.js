@@ -63,12 +63,13 @@ $("#clients").on("click", function() {
 });
 // ---client main buttons---
 $(document).on("click", ".clientsList #client-button", function() {
+  // grabs client rules list
   const clientRuleList = $(".clientRulesList");
-
+  // resets the card on every click 
   clientRuleList.html("");
-
+  // sets variable for the name of the application
   const clientName = this.value;
-
+  // gets the data and loops through to find the rules that relate to the client
   $.get("/api/v2/rule", function(data) {
     for (let i = 0; i < data.length; i++) {
       let li = $("<li>").addClass("list-group-item");
