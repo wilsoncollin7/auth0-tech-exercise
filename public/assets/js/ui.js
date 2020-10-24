@@ -64,18 +64,18 @@ $("#clients").on("click", function() {
 // ---client main buttons---
 $(document).on("click", ".clientsList #client-button", function() {
   const clientRuleList = $(".clientRulesList");
-  console.log("client button clicked")
+
   clientRuleList.html("");
 
-  const clientName = this.value
+  const clientName = this.value;
 
-  console.log(clientName);
-
-  // $.get("/api/v2/rule", function(data) {
-  //   for (let i = 0; i < data.length; i++) {
-  //     let li = $("<li>").addClass("list-group-item");
-  //     li.text(data[i].name);
-  //     ruleList.append(li);
-  //   }
-  // })
+  $.get("/api/v2/rule", function(data) {
+    for (let i = 0; i < data.length; i++) {
+      let li = $("<li>").addClass("list-group-item");
+      if (data[i].script.indexOf(clientName) != -1) {
+        li.text(data[i].name);
+        clientRuleList.append(li);
+      };
+    };
+  });
 });
