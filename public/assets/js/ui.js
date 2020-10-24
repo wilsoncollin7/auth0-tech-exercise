@@ -55,13 +55,27 @@ $("#clients").on("click", function() {
   // get request to the server, then displays the items in the array
   $.get("/api/v2/clients", function(data) {
     for (let i = 0; i < data.length; i++) {
-      let li = $("<button>").addClass("btn btn-light client-button");
+      let li = $("<button>").addClass("btn btn-light client-button").attr("id", "client-button").attr("value", data[i]);
       li.text(data[i]);
       clientsList.append(li);
     }
   })
 });
 // ---client main buttons---
-$(".client-button").on("click", function() {
-  const clientRuleList = $(".clientRuleList");
+$(document).on("click", ".clientsList #client-button", function() {
+  const clientRuleList = $(".clientRulesList");
+  console.log("client button clicked")
+  clientRuleList.html("");
+
+  const clientName = this.value
+
+  console.log(clientName);
+
+  // $.get("/api/v2/rule", function(data) {
+  //   for (let i = 0; i < data.length; i++) {
+  //     let li = $("<li>").addClass("list-group-item");
+  //     li.text(data[i].name);
+  //     ruleList.append(li);
+  //   }
+  // })
 });

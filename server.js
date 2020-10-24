@@ -30,7 +30,6 @@ app.get("/api/v2/rule", (req, res) => {
       }
       rules.push(rulesScripts);
     }
-    console.log(rules);
     res.send(rules);
   }).catch(function (error) {
     console.error(error);
