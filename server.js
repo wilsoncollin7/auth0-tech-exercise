@@ -63,7 +63,7 @@ app.get("/api/v2/clients", (req, res) => {
     const clients = [];
     let name = {};
     for (let i = 1; i < response.data.length; i++) {
-      name = (response.data[i].name)
+      name = (response.data[i].name);
       clients.push(name);
     }
     res.send(clients)

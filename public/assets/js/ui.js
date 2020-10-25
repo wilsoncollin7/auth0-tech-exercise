@@ -11,15 +11,15 @@ $("#rules").on("click", function() {
   // grabs the list element
   const ruleList = $(".rulesList");
   // resets the card on every click 
-  ruleList.html("")
+  ruleList.html("");
   // get request to the server, then displays the items in the array
   $.get("/api/v2/rule", function(data) {
     for (let i = 0; i < data.length; i++) {
       let li = $("<li>").addClass("list-group-item");
       li.text(data[i].name);
       ruleList.append(li);
-    }
-  })
+    };
+  });
 });
 // ---users---
 $("#users").on("click", function() {
@@ -27,19 +27,19 @@ $("#users").on("click", function() {
   $("#mainHeader").text("Users");
   $(".rules").addClass("hidden");
   $(".users").removeClass("hidden");
-  $(".clients").addClass("hidden")
+  $(".clients").addClass("hidden");
   // grabs the list element
   const usersList = $(".usersList");
   // resets the card on every click 
-  usersList.html("")
+  usersList.html("");
   // get request to the server, then displays the items in the array
   $.get("/api/v2/users", function(data) {
     for (let i = 0; i < data.length; i++) {
       let li = $("<li>").addClass("list-group-item");
       li.text(data[i]);
       usersList.append(li);
-    }
-  })
+    };
+  });
 });
 // ---clients---
 $("#clients").on("click", function() {
@@ -47,19 +47,19 @@ $("#clients").on("click", function() {
   $("#mainHeader").text("Clients");
   $(".rules").addClass("hidden");
   $(".users").addClass("hidden");
-  $(".clients").removeClass("hidden")
+  $(".clients").removeClass("hidden");
   // grabs the list element
   const clientsList = $(".clientsList");
   // resets the card on every click 
-  clientsList.html("")
+  clientsList.html("");
   // get request to the server, then displays the items in the array
   $.get("/api/v2/clients", function(data) {
     for (let i = 0; i < data.length; i++) {
       let li = $("<button>").addClass("btn btn-light client-button").attr("id", "client-button").attr("value", data[i]);
       li.text(data[i]);
       clientsList.append(li);
-    }
-  })
+    };
+  });
 });
 // ---client main buttons---
 $(document).on("click", ".clientsList #client-button", function() {
@@ -80,7 +80,7 @@ $(document).on("click", ".clientsList #client-button", function() {
     };
     // determines if there are no rules and says so
     if( clientRuleList.children().length === 0 ) {
-      clientRuleList.text("Client has no rules")
-    }
+      clientRuleList.text("Client has no rules");
+    };
   });
 });

@@ -19,7 +19,6 @@
   }
   ```
 
-
   ## Usage
 
   This is an express app, run:
@@ -32,8 +31,6 @@
 
   This aplication is made with the [MIT License](https://opensource.org/licenses/MIT)
 
-
   ## Questions
 
   For any questions you might have, you can email me at wilsoncollin7@gmail.com. You can also check out my [GitHub Profile](https://github.com/wilsoncollin7).
-

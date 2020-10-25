@@ -1,0 +1,7 @@
+{
+  "domain": "[APPLICATION_DOMAIN]",
+  "clientId": "[CLIENT_ID]",
+  "audience": "[MANAGEMENT_SYSTEM_API_IDENTIFIER]",
+  "token": "[MANAGEMENT_SYSTEM_API_TOKEN]",
+  "whitelist": ["ALL_EMAILS_ON_YOUR_WHITELIST"]
+}
