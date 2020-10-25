@@ -41,5 +41,5 @@
 
   For any questions you might have, you can email me at wilsoncollin7@gmail.com. You can also check out my [GitHub Profile](https://github.com/wilsoncollin7).
 
-  <img src="https://avatars1.githubusercontent.com/u/65512203?s=460&u=a0a6f2c14b86c2e2b4c3245707f231465e1de4be&v=4" width="200" style="border-radius:50%"/>
+  <img src="https://avatars2.githubusercontent.com/u/65512203?s=460&u=fb31e3048d1cfa064b8ee0ec696be762b96343f8&v=4" width="200" style="border-radius:50%"/>
 
