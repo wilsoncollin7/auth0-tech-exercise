@@ -63,6 +63,7 @@ $("#clients").on("click", function() {
 });
 // ---client main buttons---
 $(document).on("click", ".clientsList #client-button", function() {
+  $(".clientRules").removeClass("hidden")
   // grabs client rules list
   const clientRuleList = $(".clientRulesList");
   // resets the card on every click 
@@ -72,11 +73,14 @@ $(document).on("click", ".clientsList #client-button", function() {
   // gets the data and loops through to find the rules that relate to the client
   $.get("/api/v2/rule", function(data) {
     for (let i = 0; i < data.length; i++) {
-      let li = $("<li>").addClass("list-group-item");
+      let li = $("<li>").addClass("list-group-item ruleForClient");
       if (data[i].script.indexOf(clientName) != -1) {
         li.text(data[i].name);
         clientRuleList.append(li);
       };
     };
+    if( clientRuleList.children().length === 0 ) {
+      clientRuleList.text("Client has no rules")
+    }
   });
 });
