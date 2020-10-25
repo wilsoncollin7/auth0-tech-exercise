@@ -1,7 +1,7 @@
 # Auth0 Rule Viewer 
   [![GitHub followers](https://img.shields.io/github/followers/wilsoncollin7.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/wilsoncollin7?tab=followers) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  This app lets the user list all rules, users, and clients associated with their tenant in Auth0. The idea of this application is to help Auth0 users generate at anytime a list of all of their apps and the rules that apply to each of those apps. There is a TON of functionality that can be added to this in the future! `:rocket:`
+  This app lets the user list all rules, users, and clients associated with their tenant in Auth0. The idea of this application is to help Auth0 users generate at anytime a list of all of their apps and the rules that apply to each of those apps. There is a TON of functionality that can be added to this in the future! :rocket:
 
   <img src="./public/assets/images/page.JPG">
 
