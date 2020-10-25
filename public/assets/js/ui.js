@@ -63,7 +63,6 @@ $("#clients").on("click", function() {
 });
 // ---client main buttons---
 $(document).on("click", ".clientsList #client-button", function() {
-  $(".clientRules").removeClass("hidden")
   // grabs client rules list
   const clientRuleList = $(".clientRulesList");
   // resets the card on every click 
@@ -79,6 +78,7 @@ $(document).on("click", ".clientsList #client-button", function() {
         clientRuleList.append(li);
       };
     };
+    // determines if there are no rules and says so
     if( clientRuleList.children().length === 0 ) {
       clientRuleList.text("Client has no rules")
     }

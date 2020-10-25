@@ -1,6 +1,15 @@
 /* ---------------------------- */
 /* page css basic styling */
 /* ---------------------------- */
+::-moz-selection { 
+  color: white;
+  background: rgb(245, 98, 0);
+}
+
+::selection {
+  color: white;
+  background: rgb(245, 98, 0);
+}
 .hidden {
   display: none;
 }
@@ -45,6 +54,10 @@ body {
   width: 80%;
   margin: 50px auto ;
 }
+#mainLogin {
+  color:  rgb(245, 98, 0);
+  cursor: pointer;
+}
 .menu {
   width: 200px;
   height: 100vh;
@@ -71,8 +84,9 @@ body {
   padding-top: 30px;
   text-align: center;
 }
-.card-body {
-  /* padding-right: 3%; */
+.card-header {
+  color: rgb(245, 98, 0);
+  font-weight: bold;
 }
 .card {
   text-align: center;
