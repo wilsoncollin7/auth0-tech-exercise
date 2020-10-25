@@ -19,6 +19,7 @@
   }
   ```
   To generate the management API access token in the API explorer inside of you Auth0 Management API in your dashboard. Here is a link to help walk you through this: [Get Management API Access Tokens for Testing](https://auth0.com/docs/tokens/management-api-access-tokens/get-management-api-access-tokens-for-testing).
+  
   :warning: The token does expire after 24 hours, this can be configured but makes the token less secure.
 
   ## Usage
